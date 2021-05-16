@@ -21,6 +21,7 @@ const Pizza = (props) => {
 
     return (
         <form onSubmit={onSubmit}>
+            <div>
             <h1>Order Here!</h1>
 
             <button disabled={disabled} name='order-button'>Place Order</button>
@@ -30,9 +31,7 @@ const Pizza = (props) => {
                 <div>{errors.size}</div>
             </div>
 
-            <div>
                 <h2>Order Form</h2>
-
             <label>Name:    
                 <input 
                 value={values.name}
@@ -54,14 +53,14 @@ const Pizza = (props) => {
                     <option value='16inch'>16 inch</option>
                 </select>
             </label>
-
+                
                 <h3>Toppings:</h3>
 
             <label>Pepperoni     
                 <input
                 type='checkbox'
                 name='pepperoni'
-                checked={values.toppings.pepperoni}
+                checked={values.pepperoni}
                 onchange={checkbox}
                 />
             </label>
@@ -70,7 +69,7 @@ const Pizza = (props) => {
                 <input
                 type='checkbox'
                 name='sausage'
-                checked={values.toppings.sausage}
+                checked={values.sausage}
                 onChange={checkbox}
                 />
             </label>
@@ -79,7 +78,7 @@ const Pizza = (props) => {
                 <input
                 type='checkbox'
                 name='onions'
-                checked={values.toppings.onions}
+                checked={values.onions}
                 onChange={checkbox}
                 />
             </label>
@@ -88,7 +87,7 @@ const Pizza = (props) => {
                 <input
                 type='checkbox'
                 name='olives'
-                checked={values.toppings.olives}
+                checked={values.olives}
                 onChange={checkbox}
                 />
             </label>
@@ -97,7 +96,7 @@ const Pizza = (props) => {
                 <input
                 type='checkbox'
                 name='peppers'
-                checked={values.toppings.peppers}
+                checked={values.peppers}
                 onChange={checkbox}
                 />
             </label>
@@ -112,8 +111,7 @@ const Pizza = (props) => {
                 type='text'
                 />
             </label>
-
-            </div>
+        </div>
         </form>
     )
 }

@@ -111,9 +111,9 @@ const App = () => {
       <nav>
         <h1>Lambda Eats</h1>
         <div className="navButtons">
-          <Link to='/pizza' id='orderForm'>Pizza Order</Link>
+          <Link to='/pizza' id='pizza-form'>Pizza Order</Link>
           <Link to='/help' id='help'>Help</Link>
-          <Link to='/' id='home'>Home</Link>
+          <Link to='/' id='order-pizza'>Home</Link>
         </div>
       </nav>
       
@@ -121,21 +121,20 @@ const App = () => {
         <Route path='/help'>
           <h1>Hungry? We are here to help!</h1>
         </Route>
-
-        <Route path='/pizza'>
+        
+        <React.Fragment path='/pizza'>
           <Pizza 
           values={formValues}
           change={inputChange}
           submit={formSubmit}
           checkbox={checkboxChange}
           disabled={disabled}
-          errors={formErrors}
-          />
-          {
-            orders.map((order, index) => {
+          errors={formErrors}/>
+          
+          {orders.map((order, index) => {
               let toppingList = Object.keys(order.toppings);
-  let chosenToppings = toppingList.filter(function (picked) {
-    return order.toppings[picked];
+              let chosenToppings = toppingList.filter(function (picked) {
+                return order.toppings[picked];
   });
 
               return <div key={index}>
@@ -146,13 +145,13 @@ const App = () => {
                       </div>
             })
           }
-        </Route>
+        </React.Fragment>
 
         <Route exact path='/'>
-          <Home />
+          <Home/>
         </Route>
 
-        <Redirect to='/' />
+        <Redirect to='/'/>
       </Switch>
     </>
   );
